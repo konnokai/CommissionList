@@ -133,7 +133,7 @@ function toggleLanguage(lang) {
 .section-label {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #9b9a97;
+  color: var(--text-secondary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   display: flex;
@@ -146,7 +146,7 @@ function toggleLanguage(lang) {
   background: none;
   border: none;
   font-size: 0.72rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -157,23 +157,23 @@ function toggleLanguage(lang) {
 }
 
 .clear-tags:hover {
-  color: #37352f;
+  color: var(--text-primary);
 }
 
 .search-wrap {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f7f7f5;
-  border: 1px solid #e9e9e7;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0 10px;
   transition: border-color 0.15s, background 0.15s;
 }
 
 .search-wrap:focus-within {
-  background: #fff;
-  border-color: #c4c2bf;
+  background: var(--bg);
+  border-color: var(--border-hover);
 }
 
 .search-icon {
@@ -186,7 +186,7 @@ function toggleLanguage(lang) {
   background: none;
   border: none;
   outline: none;
-  color: #37352f;
+  color: var(--text-primary);
   font-size: 0.85rem;
   padding: 7px 0;
   flex: 1;
@@ -195,13 +195,13 @@ function toggleLanguage(lang) {
 }
 
 .search-input::placeholder {
-  color: #c4c2bf;
+  color: var(--text-tertiary);
 }
 
 .clear-btn {
   background: none;
   border: none;
-  color: #c4c2bf;
+  color: var(--text-tertiary);
   cursor: pointer;
   font-size: 0.75rem;
   padding: 2px 3px;
@@ -212,8 +212,8 @@ function toggleLanguage(lang) {
 }
 
 .clear-btn:hover {
-  color: #37352f;
-  background: #e9e9e7;
+  color: var(--text-primary);
+  background: var(--bg-hover2);
 }
 
 .filter-list {
@@ -230,7 +230,7 @@ function toggleLanguage(lang) {
   border-radius: 5px;
   border: none;
   background: none;
-  color: #6b6b6b;
+  color: var(--text-desc);
   font-size: 0.85rem;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
@@ -239,13 +239,13 @@ function toggleLanguage(lang) {
 }
 
 .filter-btn:hover {
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
 }
 
 .filter-btn.active {
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -267,7 +267,7 @@ function toggleLanguage(lang) {
   border-radius: 4px;
   border: none;
   background: none;
-  color: #6b6b6b;
+  color: var(--text-desc);
   font-size: 0.83rem;
   cursor: pointer;
   text-align: left;
@@ -276,8 +276,8 @@ function toggleLanguage(lang) {
 }
 
 .tag-btn:hover {
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
 }
 
 .tag-btn.active {

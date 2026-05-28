@@ -117,8 +117,8 @@ function getIconInfo(type) {
 
 <style scoped>
 .card {
-  background: #fff;
-  border: 1px solid #e9e9e7;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.15s ease;
@@ -128,7 +128,7 @@ function getIconInfo(type) {
 }
 
 .card:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px var(--shadow-card);
 }
 
 /* Gallery */
@@ -219,14 +219,14 @@ function getIconInfo(type) {
 .artist-name {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #37352f;
+  color: var(--text-primary);
   margin: 0 0 2px;
   line-height: 1.3;
 }
 
 .artist-handle {
   font-size: 0.78rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
 }
 
 /* Tags */
@@ -238,16 +238,16 @@ function getIconInfo(type) {
 
 .tag {
   padding: 2px 8px;
-  background: #f1f1ef;
+  background: var(--tag-bg);
   border-radius: 3px;
   font-size: 0.74rem;
-  color: #787774;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
 .tag-r18 {
-  background: #ffe2dd;
-  color: #c4493a;
+  background: var(--tag-r18-bg);
+  color: var(--tag-r18-color);
   font-weight: 600;
 }
 
@@ -257,14 +257,14 @@ function getIconInfo(type) {
 
 .tag-prefix {
   font-size: 0.82rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
 }
 
 .tag-lang {
-  background: #e8f4fd;
-  color: #2b6cb0;
+  background: var(--tag-lang-bg);
+  color: var(--tag-lang-color);
 }
 
 .detail-label {
@@ -273,12 +273,12 @@ function getIconInfo(type) {
 
 .detail-value {
   font-size: 0.82rem;
-  color: #6b6b6b;
+  color: var(--text-desc);
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #f1f1ef;
+  border-top: 1px solid var(--bg-hover);
   margin: 0;
 }
 
@@ -300,15 +300,15 @@ function getIconInfo(type) {
   font-size: 0.78rem;
   font-weight: 400;
   text-decoration: none;
-  color: #787774;
-  background: #f7f7f5;
-  border: 1px solid #e9e9e7;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   transition: background 0.15s, color 0.15s;
 }
 
 .contact-link:hover {
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
 }
 
 .contact-icon {

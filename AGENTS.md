@@ -49,6 +49,7 @@ CommissionList/
 | 狀態 / computed | 類型 | 說明 |
 |---|---|---|
 | `currentPage` | `ref<string>` | 目前所在頁面（`'home'` \| `'about'`） |
+| `isDark` | `ref<boolean>` | 是否啟用深色主題（從 `localStorage` 或 `prefers-color-scheme` 初始化） |
 | `searchQuery` | `ref<string>` | 搜尋關鍵字 |
 | `activeTags` | `ref<string[]>` | 已選取的標籤陣列 |
 | `activeR18` | `ref<string>` | R18 分級篩選（`'all'` \| `'sfw'` \| `'r18'`） |
@@ -66,6 +67,11 @@ CommissionList/
 - `currentPage === 'about'` → 渲染 `<AboutView />`
 - 其他 → 渲染繪師清單佈局（`FilterBar` + 卡片 Grid）
 
+**深色主題：**
+- `toggleDark()` 切換 `isDark`，並在 `<html>` 加上 / 移除 `.dark` class
+- 偏好儲存於 `localStorage`（key: `theme`），初次載入時讀取系統 `prefers-color-scheme`
+- 所有元件顏色以 CSS 自訂屬性（CSS Variables）實作，定義於 `App.vue` 全域 `<style>` 的 `:root` 與 `html.dark`
+
 ---
 
 ### `HeroSection.vue`
@@ -75,10 +81,12 @@ CommissionList/
 |---|---|---|
 | `openCount` | `Number` | 開放委託繪師數（由 `App.vue` 傳入） |
 | `currentPage` | `String` | 目前頁面，用於 active 樣式判斷 |
+| `isDark` | `Boolean` | 是否深色主題，用於切換按鈕圖示 |
 
 | Emits | 說明 |
 |---|---|
 | `update:currentPage` | 切換頁面時觸發，配合 `v-model:current-page` 使用 |
+| `toggle-dark` | 點擊主題切換按鈕時觸發 |
 
 ---
 

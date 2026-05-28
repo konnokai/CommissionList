@@ -134,34 +134,34 @@
 .section-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #37352f;
+  color: var(--text-primary);
   padding-bottom: 8px;
-  border-bottom: 1px solid #e9e9e7;
+  border-bottom: 1px solid var(--border);
 }
 
 .section-text {
   font-size: 0.95rem;
-  color: #6b6b6b;
+  color: var(--text-desc);
   line-height: 1.7;
   margin: 0;
 }
 
 .format-block {
-  background: #f7f6f3;
-  border: 1px solid #e9e9e7;
+  background: var(--format-block-bg);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 16px 20px;
 }
 
 .format-block.example {
-  background: #f0f7ff;
-  border-color: #c8dff7;
+  background: var(--format-example-bg);
+  border-color: var(--format-example-border);
 }
 
 .format-code {
   font-family: 'Noto Sans TC', 'Courier New', monospace;
   font-size: 0.88rem;
-  color: #37352f;
+  color: var(--text-primary);
   line-height: 1.9;
   white-space: pre-wrap;
   word-break: break-word;
@@ -182,7 +182,7 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 0.93rem;
-  color: #6b6b6b;
+  color: var(--text-desc);
   line-height: 1.6;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <HeroSection v-model:current-page="currentPage" />
+    <HeroSection v-model:current-page="currentPage" :is-dark="isDark" @toggle-dark="toggleDark" />
 
     <AboutView v-if="currentPage === 'about'" />
 
@@ -95,7 +95,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { artists } from './data/artists.js'
 import HeroSection from './components/HeroSection.vue'
 import FilterBar from './components/FilterBar.vue'
@@ -104,6 +104,21 @@ import AboutView from './views/AboutView.vue'
 import CommissionFormatView from './views/CommissionFormatView.vue'
 
 const currentPage = ref('home')
+
+const isDark = ref(false)
+
+function toggleDark() {
+  isDark.value = !isDark.value
+  document.documentElement.classList.toggle('dark', isDark.value)
+  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+}
+
+onMounted(() => {
+  const saved = localStorage.getItem('theme')
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  isDark.value = saved ? saved === 'dark' : prefersDark
+  document.documentElement.classList.toggle('dark', isDark.value)
+})
 
 const searchQuery = ref('')
 const activeTags = ref([])
@@ -205,13 +220,60 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg: #fff;
+  --bg-subtle: #f7f7f5;
+  --bg-hover: #f1f1ef;
+  --bg-hover2: #e9e9e7;
+  --border: #e9e9e7;
+  --border-hover: #d3d1ce;
+  --text-primary: #37352f;
+  --text-secondary: #9b9a97;
+  --text-tertiary: #c4c2bf;
+  --text-muted: #787774;
+  --text-desc: #6b6b6b;
+  --tag-bg: #f1f1ef;
+  --tag-lang-bg: #e8f4fd;
+  --tag-lang-color: #2b6cb0;
+  --tag-r18-bg: #ffe2dd;
+  --tag-r18-color: #c4493a;
+  --format-block-bg: #f7f6f3;
+  --format-example-bg: #f0f7ff;
+  --format-example-border: #c8dff7;
+  --shadow-card: rgba(0, 0, 0, 0.08);
+}
+
+html.dark {
+  --bg: #1a1a1a;
+  --bg-subtle: #222;
+  --bg-hover: #2a2a2a;
+  --bg-hover2: #333;
+  --border: #333;
+  --border-hover: #4a4948;
+  --text-primary: #e8e8e5;
+  --text-secondary: #888;
+  --text-tertiary: #555;
+  --text-muted: #a0a09d;
+  --text-desc: #999;
+  --tag-bg: #2a2a2a;
+  --tag-lang-bg: #1a2d3d;
+  --tag-lang-color: #6ab0e8;
+  --tag-r18-bg: #3d1515;
+  --tag-r18-color: #f08080;
+  --format-block-bg: #222;
+  --format-example-bg: #162030;
+  --format-example-border: #1e3a52;
+  --shadow-card: rgba(0, 0, 0, 0.3);
+}
+
 body {
-  background: #fff;
-  color: #37352f;
+  background: var(--bg);
+  color: var(--text-primary);
   font-family: 'Inter', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 #app {
@@ -251,18 +313,18 @@ body {
 
 .results-count {
   font-size: 0.85rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
 }
 
 .results-count strong {
-  color: #37352f;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .reset-btn {
   background: none;
   border: none;
-  color: #9b9a97;
+  color: var(--text-secondary);
   font-size: 0.82rem;
   padding: 3px 8px;
   border-radius: 4px;
@@ -274,21 +336,21 @@ body {
 }
 
 .reset-btn:hover {
-  color: #37352f;
-  background: #f1f1ef;
+  color: var(--text-primary);
+  background: var(--bg-hover);
 }
 
 .reset-btn.primary {
   text-decoration: none;
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
   padding: 8px 18px;
   font-size: 0.88rem;
   border-radius: 6px;
 }
 
 .reset-btn.primary:hover {
-  background: #e9e9e7;
+  background: var(--bg-hover2);
 }
 
 .grid {
@@ -313,18 +375,18 @@ body {
 
 .empty h3 {
   font-size: 1.1rem;
-  color: #37352f;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .empty p {
   font-size: 0.88rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .footer {
-  border-top: 1px solid #e9e9e7;
+  border-top: 1px solid var(--border);
   padding: 20px 0;
   text-align: center;
 }
@@ -337,7 +399,7 @@ body {
 
 .footer-text {
   font-size: 0.82rem;
-  color: #c4c2bf;
+  color: var(--text-tertiary);
 }
 
 .pagination {
@@ -353,10 +415,10 @@ body {
   min-width: 34px;
   height: 34px;
   padding: 0 8px;
-  border: 1px solid #e9e9e7;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  background: #fff;
-  color: #37352f;
+  background: var(--bg);
+  color: var(--text-primary);
   font-size: 0.88rem;
   font-family: inherit;
   cursor: pointer;
@@ -367,14 +429,14 @@ body {
 }
 
 .page-btn:hover:not(:disabled):not(.active) {
-  background: #f1f1ef;
-  border-color: #d3d1ce;
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
 }
 
 .page-btn.active {
-  background: #37352f;
-  color: #fff;
-  border-color: #37352f;
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
   cursor: default;
 }
 
@@ -385,7 +447,7 @@ body {
 
 .page-ellipsis {
   padding: 0 4px;
-  color: #9b9a97;
+  color: var(--text-secondary);
   font-size: 0.88rem;
   line-height: 34px;
 }

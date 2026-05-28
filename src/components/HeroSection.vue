@@ -34,6 +34,13 @@
           <i class="fas fa-info-circle"></i>
           關於本站
         </button>
+        <button
+          class="nav-btn theme-toggle"
+          @click="$emit('toggle-dark')"
+          :aria-label="isDark ? '切換淺色主題' : '切換深色主題'"
+        >
+          <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+        </button>
       </nav>
     </div>
   </header>
@@ -42,13 +49,14 @@
 <script setup>
 defineProps({
   currentPage: { type: String, default: 'home' },
+  isDark: { type: Boolean, default: false },
 })
-defineEmits(['update:currentPage'])
+defineEmits(['update:currentPage', 'toggle-dark'])
 </script>
 
 <style scoped>
 .hero {
-  border-bottom: 1px solid #e9e9e7;
+  border-bottom: 1px solid var(--border);
   padding: 48px 24px 0;
 }
 
@@ -60,7 +68,7 @@ defineEmits(['update:currentPage'])
 .hero-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #37352f;
+  color: var(--text-primary);
   line-height: 1.3;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
@@ -68,12 +76,12 @@ defineEmits(['update:currentPage'])
 
 .hero-desc {
   font-size: 0.95rem;
-  color: #9b9a97;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
 .hero-desc strong {
-  color: #37352f;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -97,7 +105,7 @@ defineEmits(['update:currentPage'])
   font-family: inherit;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #9b9a97;
+  color: var(--text-secondary);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
   border-radius: 0;
@@ -105,12 +113,19 @@ defineEmits(['update:currentPage'])
 }
 
 .nav-btn:hover {
-  color: #37352f;
+  color: var(--text-primary);
 }
 
 .nav-btn.active {
-  color: #37352f;
-  border-bottom-color: #37352f;
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+.theme-toggle {
+  margin-left: auto;
+  border-bottom-color: transparent !important;
+  font-size: 1rem;
+  padding: 8px 10px;
 }
 
 @media (max-width: 480px) {

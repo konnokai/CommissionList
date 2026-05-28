@@ -88,14 +88,14 @@
 .section-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #37352f;
+  color: var(--text-primary);
   padding-bottom: 10px;
-  border-bottom: 1px solid #e9e9e7;
+  border-bottom: 1px solid var(--border);
 }
 
 .section-text {
   font-size: 0.92rem;
-  color: #6b6b6b;
+  color: var(--text-desc);
   line-height: 1.8;
 }
 
@@ -111,7 +111,7 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 0.92rem;
-  color: #6b6b6b;
+  color: var(--text-desc);
   line-height: 1.7;
 }
 
@@ -121,11 +121,11 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background: #f1f1ef;
+  background: var(--bg-hover);
   border-radius: 6px;
   flex-shrink: 0;
   font-size: 0.8rem;
-  color: #37352f;
+  color: var(--text-primary);
   margin-top: 2px;
 }
 
@@ -144,13 +144,13 @@
   font-size: 0.88rem;
   font-weight: 500;
   text-decoration: none;
-  background: #f1f1ef;
-  color: #37352f;
+  background: var(--bg-hover);
+  color: var(--text-primary);
   transition: background 0.15s, color 0.15s;
 }
 
 .contact-btn:hover {
-  background: #e3e3e0;
+  background: var(--bg-hover2);
 }
 
 @media (max-width: 480px) {
