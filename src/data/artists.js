@@ -1,11 +1,97 @@
 export const artists = [
   {
-    id: 1,
+    name: 'にんさき (九櫻)',
+    handle: '@9saki_000',
+    avatar: 'https://pbs.twimg.com/profile_images/1512333368096026624/Uc46EmLr_400x400.jpg',
+    tags: ['插圖', '立繪', '角色設計', '等身抱枕', 'V 皮一條龍'],
+    languages: ['中文', '日文'],
+    r18: true,
+    portfolio: [
+      { img: 'https://pbs.twimg.com/media/FV6-o87VEAA67Vp?format=jpg&name=360x360', url: 'https://x.com/9saki_000/status/1539877803608268800' },
+      { img: 'https://pbs.twimg.com/media/HEacJ_2aYAAiC09?format=jpg&name=360x360', url: 'https://x.com/9saki_000/status/2037487686601343210' },
+      { img: 'https://pbs.twimg.com/media/HFDNU4qa8AAA2Im?format=jpg&name=360x360', url: 'https://x.com/9saki_000/status/2040356871312474428' },
+    ],
+    contacts: [
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/9saki_000' },
+      { type: 'pixiv', label: 'Pixiv', url: 'https://www.pixiv.net/users/1834790' },
+      { type: 'twitch', label: 'Twitch', url: 'http://twitch.tv/gallant99770' },
+    ],
+  },
+  {
+    name: '星姆SingMu🌈',
+    handle: '@SingMu',
+    avatar: 'https://pbs.twimg.com/profile_images/1677209911879700480/ViZot3jW_400x400.jpg',
+    tags: ['插圖', '立繪', '貼圖', 'Q 版', '角色設計'],
+    languages: ['中文'],
+    r18: false,
+    portfolio: [      
+      { img: 'https://pbs.twimg.com/media/GwpvXqwbgAEMsm2?format=jpg&name=360x360', url: 'https://x.com/SingMu/status/1948492333722288320' },
+      { img: 'https://pbs.twimg.com/media/Gf4WglYawAAplgU?format=jpg&name=360x360', url: 'https://x.com/Kon_no_kai/status/1872968921411928524' },
+      { img: 'https://pbs.twimg.com/media/G2upPrvbEAAkIjV?format=jpg&name=360x360', url: 'https://x.com/SingMu/status/1975860692654895337' },
+    ],
+    contacts: [
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/SingMu' },
+      { type: 'litlink', label: 'lit.link', url: 'https://lit.link/zh-tw/singmu' },
+      { type: 'tumblr', label: 'Tumblr', url: 'https://singmu.tumblr.com/' },
+    ],
+  },
+  {
+    name: '鯉魚LeeYu🐟',
+    handle: '@koi4LeeYu0412',
+    avatar: 'https://pbs.twimg.com/profile_images/1914241290717609984/s4BYDidI_400x400.jpg',
+    tags: ['貼圖', 'Q 版'],
+    languages: ['中文'],
+    r18: false,
+    portfolio: [      
+      { img: 'https://trello.com/1/cards/6630a4baf8c51b74d1f6d585/attachments/6630a52676a53eb86490e533/download/2322.png', url: 'https://trello.com/c/xLxM9HRY/29-%E8%B7%B3%E8%88%9E%E6%B5%A3%E7%86%8A' },
+      { img: 'https://trello.com/1/cards/65e2ca7ab773dab8ecd2ca2d/attachments/65e2cac4703b3f1e8cbd4a30/download/-tw1.gif', url: 'https://trello.com/c/Gl0aREDC/13-%E8%B2%BC%E5%9C%96%E5%8F%83%E8%80%83' },
+      { img: 'https://trello.com/1/cards/65e2ca7f08ab9834c3220d2e/attachments/65e2caf43baef037eb0c1a8d/download/tw.jpg', url: 'https://trello.com/c/yE01d3Im/14-%E9%9D%9C%E6%85%8B%E6%A8%A1%E6%9D%BF' },
+    ],
+    contacts: [
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/koi4LeeYu0412' },
+      { type: 'twitch', label: 'Twitch', url: 'https://www.twitch.tv/koi4leeyu0412' },
+      { type: 'trello', label: '排單表', url: 'https://trello.com/b/zGbQGKWo/%E6%87%B6%E9%AF%89%E9%AD%9A%E6%8E%92%E7%A8%8B' },
+    ],
+  },
+  {
+    name: '阿天さん',
+    handle: '@RTIAN_OUO',
+    avatar: 'https://pbs.twimg.com/profile_images/1986821264854646784/gmDE-8SQ_400x400.jpg',
+    tags: ['Q 版', '貼圖', '插圖', '像素'],
+    languages: ['中文'],
+    r18: false,
+    portfolio: [
+      { img: 'https://pbs.twimg.com/media/HJIWuEpbEAAuHtA?format=jpg&name=360x360', url: 'https://x.com/RTIAN_OUO/status/2058735090176520433' },
+      { img: 'https://pbs.twimg.com/media/G3fNKYhW8AA5YwE?format=jpg&name=360x360', url: 'https://x.com/RTIAN_OUO/status/1979279570609275073' },
+      { img: 'https://pbs.twimg.com/tweet_video_thumb/G6gqAqEawAAHffs?format=jpg&name=360x360', url: 'https://x.com/RTIAN_OUO/status/1992889464704876645' },
+    ],
+    contacts: [
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/RTIAN_OUO' },
+      { type: 'notion', label: '委託網站', url: 'https://rtianouo.notion.site/1fbf11e62b6f8097ac75f74eba88b669' },
+    ],
+  },
+  {
+    name: 'alllisso',
+    handle: '@alllisso0',
+    avatar: 'https://pbs.twimg.com/profile_images/2041428231577034752/lmO4_fVa_400x400.jpg',
+    tags: ['插圖', '等身抱枕'],
+    languages: ['英文'],
+    r18: false,
+    portfolio: [
+      { img: 'https://pbs.twimg.com/media/HGxHOAxXMAAu6UW?format=jpg&name=360x360', url: 'https://x.com/alllisso0/status/2048090329262301262' },
+      { img: 'https://pbs.twimg.com/media/HFexhNyWgAAFhSh?format=jpg&name=360x360', url: 'https://x.com/alllisso0/status/2045111029307486322' },
+      { img: 'https://pbs.twimg.com/media/GUkEYMyXkAA-cV6?format=jpg&name=360x360', url: 'https://x.com/alllisso_/status/1821992342326333676' },
+    ],
+    contacts: [
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/alllisso0' },
+      { type: 'carrd', label: 'Carrd.co', url: 'https://alllisso.carrd.co/' },
+    ],
+  },
+  {
     name: 'あくあめ',
     handle: '@akuame3922',
     avatar: 'https://pbs.twimg.com/profile_images/1908424852652126208/2V2JD090_400x400.jpg',
-    bio: 'お絵描きしてます！ ご依頼やお問合せ→ akuame3922@gmail.com',
-    tags: ['立繪', '萌系', 'VTuber'],
+    tags: ['立繪', '插圖'],
     languages: ['日文'],
     r18: true,
     portfolio: [
@@ -14,11 +100,10 @@ export const artists = [
       { img: 'https://pbs.twimg.com/media/G8R84AjasAADiFg?format=jpg&name=360x360', url: 'https://x.com/akuame3922/status/2000891156159463599' },
     ],
     contacts: [
-      { type: 'twitter', label: 'Twitter', url: 'https://x.com/akuame3922', icon: 'twitter' },
-      { type: 'pixiv', label: 'Pixiv', url: 'https://www.pixiv.net/', icon: 'pixiv' },
-      { type: 'email', label: 'Email', url: 'mailto:luna@example.com', icon: 'email' },
-      { type: 'skeb', label: 'Skeb', url: 'https://skeb.jp/@akuame3922', icon: 'skeb' },
+      { type: 'twitter', label: 'Twitter', url: 'https://x.com/akuame3922' },
+      { type: 'skeb', label: 'Skeb', url: 'https://skeb.jp/@akuame3922' },
+      { type: 'fanbox', label: 'Fanbox', url: 'https://www.fanbox.cc/@akuame' },
+      { type: 'pixiv', label: 'Pixiv', url: 'https://www.pixiv.net/users/19388542' },
     ],
   },
 ]
-
