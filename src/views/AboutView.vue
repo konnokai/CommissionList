@@ -61,6 +61,36 @@
           <a href="https://www.flaticon.com/free-icons/list" title="list icons">List icons created by Kiranshastry - Flaticon</a>
         </p>
       </section>
+      
+      <section class="about-section">
+        <h2 class="section-title">抖內</h2>
+        <p class="section-text">
+          若喜歡本站的整理，歡迎透過以下方式支持：
+        </p>
+        <div class="contact-links">
+          <a
+            href="https://paypal.me/jun112561"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn"
+          >
+            <img src="https://paypal.com/favicon.ico" alt="綠界" style="width:1em;height:1em;object-fit:contain;" />
+            PayPal
+          </a>
+        </div>
+        
+        <div class="contact-links">
+          <a
+            href="https://p.ecpay.com.tw/B8CCC"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn"
+          >
+            <img src="https://www.ecpay.com.tw/favicon.ico" alt="綠界" style="width:1em;height:1em;object-fit:contain;" />
+            綠界
+          </a>
+        </div>
+      </section>
     </div>
   </div>
 </template>

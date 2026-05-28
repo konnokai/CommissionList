@@ -140,7 +140,6 @@ CommissionList/
 
 ```js
 {
-  id: Number,               // 唯一識別 ID
   name: String,             // 繪師顯示名稱
   handle: String,           // 社群帳號（如 @name）
   avatar: String,           // 頭像圖片 URL

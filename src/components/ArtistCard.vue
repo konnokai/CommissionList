@@ -93,7 +93,8 @@ function getIconInfo(type) {
     twitch: 'fa-brands fa-twitch',
     notion: 'fa-brands fa-notion',
     trello: 'fa-brands fa-trello',
-    linktree: 'fa-brands fa-linktree'
+    linktree: 'fa-brands fa-linktree',
+    tumblr: 'fa-brands fa-tumblr',
   }
   const faviconDomains = {
     skeb: 'skeb.jp',
@@ -104,6 +105,7 @@ function getIconInfo(type) {
     clibo: 'clibo.tw',
     litlink: 'lit.link',
     carrd: 'carrd.co',
+    fanbox: 'fanbox.cc',
   }
 
   if (faIcons[type]) return { kind: 'fa', cls: faIcons[type] }
