@@ -8,9 +8,6 @@ export const artists = [
     tags: ['立繪', '萌系', 'VTuber'],
     languages: ['日文'],
     r18: true,
-    commissionStatus: 'open',
-    priceRange: '30000 JPY',
-    turnaround: '約 3 週',
     portfolio: [
       { img: 'https://pbs.twimg.com/media/HIC-mxkaoAAikG8?format=jpg&name=360x360', url: 'https://x.com/akuame3922/status/2053852631215272122' },
       { img: 'https://pbs.twimg.com/media/HCxzx-taUAMquVr?format=jpg&name=360x360', url: 'https://x.com/akuame3922/status/2030244569695105084' },
@@ -25,7 +22,3 @@ export const artists = [
   },
 ]
 
-export const statusConfig = {
-  open: { label: '開放委託', color: '#10B981', bg: '#D1FAE5' },
-  closed: { label: '暫停委託', color: '#EF4444', bg: '#FEE2E2' },
-}

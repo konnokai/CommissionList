@@ -15,23 +15,6 @@
       </div>
     </div>
 
-    <!-- Status filter -->
-    <div class="section">
-      <div class="section-label">委託狀態</div>
-      <div class="filter-list">
-        <button
-          v-for="s in statuses"
-          :key="s.key"
-          class="filter-btn"
-          :class="{ active: activeStatus === s.key }"
-          @click="$emit('update:activeStatus', s.key)"
-        >
-          <span class="dot" :style="{ background: s.color }"></span>
-          {{ s.label }}
-        </button>
-      </div>
-    </div>
-
     <!-- R18 filter -->
     <div class="section">
       <div class="section-label">委託內容分級</div>
@@ -106,15 +89,13 @@
 <script setup>
 const props = defineProps({
   modelValue: { type: String, default: '' },
-  activeStatus: { type: String, default: 'all' },
-  statuses: { type: Array, default: () => [] },
   allTags: { type: Array, default: () => [] },
   activeTags: { type: Array, default: () => [] },
   activeR18: { type: String, default: 'all' },
   allLanguages: { type: Array, default: () => [] },
   activeLanguages: { type: Array, default: () => [] },
 })
-const emit = defineEmits(['update:modelValue', 'update:activeStatus', 'update:activeTags', 'update:activeR18', 'update:activeLanguages'])
+const emit = defineEmits(['update:modelValue', 'update:activeTags', 'update:activeR18', 'update:activeLanguages'])
 
 function toggleTag(tag) {
   const current = [...props.activeTags]

@@ -5,7 +5,7 @@
         <div>
           <h1 class="hero-title">委託繪師清單</h1>
           <p class="hero-desc">
-            整理了一些目前有在接稿的繪師。目前有 <strong>{{ openCount }}</strong> 位開放委託中。
+            整理了一些目前有在接稿的繪師。
           </p>
         </div>
       </div>
@@ -33,7 +33,6 @@
 
 <script setup>
 defineProps({
-  openCount: { type: Number, default: 0 },
   currentPage: { type: String, default: 'home' },
 })
 defineEmits(['update:currentPage'])

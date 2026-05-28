@@ -1,17 +1,15 @@
 <template>
   <div class="app">
-    <HeroSection :open-count="openCount" v-model:current-page="currentPage" />
+    <HeroSection v-model:current-page="currentPage" />
 
     <AboutView v-if="currentPage === 'about'" />
 
     <div v-else class="layout">
       <FilterBar
         v-model="searchQuery"
-        v-model:activeStatus="activeStatus"
         v-model:activeTags="activeTags"
         v-model:activeR18="activeR18"
         v-model:activeLanguages="activeLanguages"
-        :statuses="filterStatuses"
         :all-tags="allTags"
         :all-languages="allLanguages"
       />
@@ -105,16 +103,9 @@ import AboutView from './views/AboutView.vue'
 const currentPage = ref('home')
 
 const searchQuery = ref('')
-const activeStatus = ref('all')
 const activeTags = ref([])
 const activeR18 = ref('all')
 const activeLanguages = ref([])
-
-const filterStatuses = [
-  { key: 'all', label: '全部', color: '#9b9a97' },
-  { key: 'open', label: '開放委託', color: '#0f7b6c' },
-  { key: 'closed', label: '暫停委託', color: '#c4493a' },
-]
 
 const allTags = computed(() => {
   const set = new Set()
@@ -128,12 +119,8 @@ const allLanguages = computed(() => {
   return [...set].sort()
 })
 
-const openCount = computed(() =>
-  artists.filter(a => a.commissionStatus === 'open').length
-)
-
 const isFiltered = computed(() =>
-  searchQuery.value.trim() || activeStatus.value !== 'all' || activeTags.value.length > 0 || activeR18.value !== 'all' || activeLanguages.value.length > 0
+  searchQuery.value.trim() || activeTags.value.length > 0 || activeR18.value !== 'all' || activeLanguages.value.length > 0
 )
 
 const filteredArtists = computed(() => {
@@ -143,10 +130,6 @@ const filteredArtists = computed(() => {
     list = list.filter(a => !a.r18)
   } else if (activeR18.value === 'r18') {
     list = list.filter(a => a.r18)
-  }
-
-  if (activeStatus.value !== 'all') {
-    list = list.filter(a => a.commissionStatus === activeStatus.value)
   }
 
   if (activeTags.value.length > 0) {
@@ -203,7 +186,6 @@ function goToPage(page) {
 
 function resetFilters() {
   searchQuery.value = ''
-  activeStatus.value = 'all'
   activeTags.value = []
   activeR18.value = 'all'
   activeLanguages.value = []

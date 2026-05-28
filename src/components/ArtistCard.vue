@@ -1,11 +1,5 @@
 <template>
   <article class="card">
-    <!-- Status ribbon -->
-    <div class="status-badge" :class="artist.commissionStatus">
-      <span class="status-dot"></span>
-      {{ statusConfig[artist.commissionStatus].label }}
-    </div>
-
     <!-- Portfolio gallery -->
     <div class="gallery">
       <component
@@ -38,35 +32,22 @@
 
       <p class="bio">{{ artist.bio }}</p>
 
+      <hr class="divider" />
+
       <!-- Languages -->
       <div v-if="artist.languages && artist.languages.length" class="tags languages">
-        <span class="lang-prefix"><i class="fa-solid fa-language"></i></span>
+        <span class="tag-prefix"><i class="fa-solid fa-language"></i></span>
         <span v-for="lang in artist.languages" :key="lang" class="tag tag-lang">{{ lang }}</span>
       </div>
 
       <!-- Tags -->
       <div class="tags">
+        <span class="tag-prefix"><i class="fa-solid fa-tag"></i></span>
         <span v-if="artist.r18" class="tag tag-r18">可委託 R18</span>
         <span v-for="tag in artist.tags" :key="tag" class="tag">{{ tag }}</span>
       </div>
 
-      <!-- Details grid -->
-      <div class="details">
-        <div class="detail-item">
-          <span class="detail-icon fa-solid fa-money-bill-wave"></span>
-          <div>
-            <div class="detail-label">價格範圍</div>
-            <div class="detail-value">{{ artist.priceRange }}</div>
-          </div>
-        </div>
-        <div class="detail-item">
-          <span class="detail-icon fa-solid fa-clock"></span>
-          <div>
-            <div class="detail-label">交件時間</div>
-            <div class="detail-value">{{ artist.turnaround }}</div>
-          </div>
-        </div>
-      </div>
+      <hr class="divider" />
 
       <!-- Contact links -->
       <div class="contacts">
@@ -99,8 +80,6 @@
 </template>
 
 <script setup>
-import { statusConfig } from '../data/artists.js'
-
 defineProps({
   artist: { type: Object, required: true },
 })
@@ -148,39 +127,6 @@ function getIconInfo(type) {
 .card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
-/* Status badge */
-.status-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 9px;
-  border-radius: 4px;
-  font-size: 0.72rem;
-  font-weight: 500;
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.status-badge.open {
-  background: #ddedea;
-  color: #0f7b6c;
-}
-.status-badge.open .status-dot { background: #0f7b6c; }
-
-.status-badge.closed {
-  background: #ffe2dd;
-  color: #c4493a;
-}
-.status-badge.closed .status-dot { background: #c4493a; }
 
 /* Gallery */
 .gallery {
@@ -318,7 +264,7 @@ function getIconInfo(type) {
   margin-top: -4px;
 }
 
-.lang-prefix {
+.tag-prefix {
   font-size: 0.82rem;
   color: #9b9a97;
   display: flex;
@@ -357,6 +303,12 @@ function getIconInfo(type) {
 .detail-value {
   font-size: 0.82rem;
   color: #6b6b6b;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #f1f1ef;
+  margin: 0;
 }
 
 /* Contacts */
