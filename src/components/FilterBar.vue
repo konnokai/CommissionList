@@ -49,7 +49,7 @@
     <!-- Language filter -->
     <div class="section" v-if="allLanguages.length">
       <div class="section-label">
-        接單語系
+        溝通語言
         <button v-if="activeLanguages.length" class="clear-tags" @click="$emit('update:activeLanguages', [])">清除</button>
       </div>
       <div class="tag-list">
