@@ -49,14 +49,12 @@ CommissionList/
 |---|---|---|
 | `currentPage` | `ref<string>` | 目前所在頁面（`'home'` \| `'about'`） |
 | `searchQuery` | `ref<string>` | 搜尋關鍵字 |
-| `activeStatus` | `ref<string>` | 委託狀態篩選（`'all'` \| `'open'` \| `'closed'`） |
 | `activeTags` | `ref<string[]>` | 已選取的標籤陣列 |
 | `activeR18` | `ref<string>` | R18 分級篩選（`'all'` \| `'sfw'` \| `'r18'`） |
 | `activeLanguages` | `ref<string[]>` | 已選取的語系陣列 |
 | `currentPageNum` | `ref<number>` | 目前分頁頁碼（預設 `1`，篩選條件變動時自動重置） |
 | `allTags` | `computed` | 從所有繪師資料中彙整出的不重複標籤清單 |
 | `allLanguages` | `computed` | 從所有繪師資料中彙整出的不重複接單語系清單 |
-| `openCount` | `computed` | 目前委託狀態為 `open` 的繪師數量 |
 | `isFiltered` | `computed` | 是否有任何篩選條件啟用中 |
 | `filteredArtists` | `computed` | 依所有篩選條件過濾後的繪師清單 |
 | `totalPages` | `computed` | 總頁數（每頁 10 筆，超過 10 筆才啟用分頁） |
@@ -89,7 +87,6 @@ CommissionList/
 | Props（v-model） | 說明 |
 |---|---|
 | `modelValue` | 搜尋關鍵字 |
-| `activeStatus` | 委託狀態篩選值 |
 | `activeTags` | 已選標籤陣列 |
 | `activeR18` | R18 分級篩選值 |
 | `allLanguages` | 所有可用語系陣列 |
@@ -127,13 +124,9 @@ CommissionList/
   name: String,             // 繪師顯示名稱
   handle: String,           // 社群帳號（如 @name）
   avatar: String,           // 頭像圖片 URL
-  bio: String,              // 簡介文字
   tags: String[],           // 風格 / 類型標籤陣列
   languages: String[],      // 接單語系陣列（如 ['中文', '日文', '英文']）
   r18: Boolean,             // 是否接受 R18 委託
-  commissionStatus: String, // 'open' | 'closed'
-  priceRange: String,       // 價格範圍文字
-  turnaround: String,       // 交件時間文字
   portfolio: [               // 作品集陣列
     {
       img: String,          // 圖片 URL

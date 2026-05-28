@@ -30,8 +30,6 @@
         </div>
       </div>
 
-      <p class="bio">{{ artist.bio }}</p>
-
       <hr class="divider" />
 
       <!-- Languages -->
@@ -89,10 +87,11 @@ function getIconInfo(type) {
     twitter: 'fa-brands fa-x-twitter',
     pixiv: 'fa-brands fa-pixiv',
     instagram: 'fa-brands fa-instagram',
-    artstation: 'fa-brands fa-artstation',
     patreon: 'fa-brands fa-patreon',
     youtube: 'fa-brands fa-youtube',
     email: 'fa-regular fa-envelope',
+    twitch: 'fa-brands fa-twitch',
+    notion: 'fa-brands fa-notion',
   }
   const faviconDomains = {
     skeb: 'skeb.jp',
@@ -226,18 +225,6 @@ function getIconInfo(type) {
   color: #9b9a97;
 }
 
-.bio {
-  font-size: 0.85rem;
-  color: #6b6b6b;
-  line-height: 1.6;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 /* Tags */
 .tags {
   display: flex;
@@ -274,26 +261,6 @@ function getIconInfo(type) {
 .tag-lang {
   background: #e8f4fd;
   color: #2b6cb0;
-}
-
-/* Details */
-.details {
-  display: flex;
-  gap: 16px;
-  padding-top: 4px;
-  border-top: 1px solid #f1f1ef;
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.detail-icon {
-  font-size: 0.85rem;
-  line-height: 1;
-  opacity: 0.6;
 }
 
 .detail-label {

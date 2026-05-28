@@ -65,9 +65,6 @@
   </div>
 </template>
 
-<script setup>
-</script>
-
 <style scoped>
 .about-wrapper {
   flex: 1;

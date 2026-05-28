@@ -145,8 +145,7 @@ const filteredArtists = computed(() => {
     list = list.filter(a =>
       a.name.toLowerCase().includes(q) ||
       a.handle.toLowerCase().includes(q) ||
-      a.tags.some(t => t.toLowerCase().includes(q)) ||
-      a.bio.toLowerCase().includes(q)
+      a.tags.some(t => t.toLowerCase().includes(q))
     )
   }
 
@@ -291,7 +290,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
 }
 
@@ -408,118 +407,8 @@ body {
     padding: 20px 16px 48px;
     gap: 20px;
   }
-  .grid { grid-template-columns: 1fr; gap: 12px; }
-}
-
-.results-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.results-count {
-  font-size: 0.85rem;
-  color: #9b9a97;
-}
-
-.results-count strong {
-  color: #37352f;
-  font-weight: 600;
-}
-
-.reset-btn {
-  background: none;
-  border: none;
-  color: #9b9a97;
-  font-size: 0.82rem;
-  padding: 3px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.reset-btn:hover {
-  color: #37352f;
-  background: #f1f1ef;
-}
-
-.reset-btn.primary {
-  text-decoration: none;
-  background: #f1f1ef;
-  color: #37352f;
-  padding: 8px 18px;
-  font-size: 0.88rem;
-  border-radius: 6px;
-}
-
-.reset-btn.primary:hover {
-  background: #e9e9e7;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-}
-
-.empty {
-  text-align: center;
-  padding: 80px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.empty-icon {
-  font-size: 2.5rem;
-  margin-bottom: 4px;
-}
-
-.empty h3 {
-  font-size: 1.1rem;
-  color: #37352f;
-  font-weight: 600;
-}
-
-.empty p {
-  font-size: 0.88rem;
-  color: #9b9a97;
-  margin-bottom: 8px;
-}
-
-.footer {
-  border-top: 1px solid #e9e9e7;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-text {
-  font-size: 0.82rem;
-  color: #c4c2bf;
-}
-
-.cards-enter-active,
-.cards-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.cards-enter-from,
-.cards-leave-to {
-  opacity: 0;
-}
-
-.cards-move {
-  transition: transform 0.2s ease;
-}
-
-@media (max-width: 768px) {
   .main { padding: 24px 0 48px; }
   .grid { grid-template-columns: 1fr; gap: 12px; }
-  .container { padding: 0 16px; }
 }
 </style>
 
