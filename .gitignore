@@ -38,3 +38,9 @@ vite.config.js.timestamp-*
 # OS generated files
 Thumbs.db
 ehthumbs.db
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
