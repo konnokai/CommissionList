@@ -32,8 +32,9 @@ CommissionList/
     │   ├── HeroSection.vue  # 頁首 Hero 區塊 + 頁面導覽列
     │   ├── FilterBar.vue    # 左側篩選列（搜尋、狀態、分級、標籤）
     │   └── ArtistCard.vue   # 繪師卡片（作品集、資訊、聯絡連結）
-    ├── views/               # 頁面級元件
-    │   └── AboutView.vue    # 關於本站頁面
+    └── views/               # 頁面級元件
+        ├── AboutView.vue    # 關於本站頁面
+        └── CommissionFormatView.vue  # 委託格式範例頁面
     └── data/
         └── artists.js       # 繪師靜態資料陣列
 ```
@@ -114,6 +115,17 @@ CommissionList/
 
 ---
 
+### `CommissionFormatView.vue`（views）
+委託格式範例靜態頁面，包含以下段落：
+- 委託格式範例（說明）
+- 基本資訊
+- 角色描述
+- 構圖需求
+- 範例（完整填寫）
+- 注意事項
+
+---
+
 ## 資料結構
 
 ### `src/data/artists.js`
@@ -152,6 +164,7 @@ CommissionList/
 |---|---|---|
 | `home` | `App.vue`（主佈局） | 繪師清單，含篩選列與卡片 Grid |
 | `about` | `AboutView.vue` | 關於本站 |
+| `format` | `CommissionFormatView.vue` | 委託格式範例 |
 
 ---
 

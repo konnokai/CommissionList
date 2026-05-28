@@ -92,6 +92,8 @@ function getIconInfo(type) {
     email: 'fa-regular fa-envelope',
     twitch: 'fa-brands fa-twitch',
     notion: 'fa-brands fa-notion',
+    trello: 'fa-brands fa-trello',
+    linktree: 'fa-brands fa-linktree'
   }
   const faviconDomains = {
     skeb: 'skeb.jp',
@@ -99,7 +101,9 @@ function getIconInfo(type) {
     booth: 'booth.pm',
     kofi: 'ko-fi.com',
     gumroad: 'gumroad.com',
-    clibo: 'clibo.tw'
+    clibo: 'clibo.tw',
+    litlink: 'lit.link',
+    carrd: 'carrd.co',
   }
 
   if (faIcons[type]) return { kind: 'fa', cls: faIcons[type] }

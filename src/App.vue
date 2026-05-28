@@ -4,6 +4,8 @@
 
     <AboutView v-if="currentPage === 'about'" />
 
+    <CommissionFormatView v-else-if="currentPage === 'format'" />
+
     <div v-else class="layout">
       <FilterBar
         v-model="searchQuery"
@@ -99,6 +101,7 @@ import HeroSection from './components/HeroSection.vue'
 import FilterBar from './components/FilterBar.vue'
 import ArtistCard from './components/ArtistCard.vue'
 import AboutView from './views/AboutView.vue'
+import CommissionFormatView from './views/CommissionFormatView.vue'
 
 const currentPage = ref('home')
 

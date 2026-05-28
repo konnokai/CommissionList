@@ -20,6 +20,14 @@
         </button>
         <button
           class="nav-btn"
+          :class="{ active: currentPage === 'format' }"
+          @click="$emit('update:currentPage', 'format')"
+        >
+          <i class="fas fa-file-alt"></i>
+          委託格式範例
+        </button>
+        <button
+          class="nav-btn"
           :class="{ active: currentPage === 'about' }"
           @click="$emit('update:currentPage', 'about')"
         >
