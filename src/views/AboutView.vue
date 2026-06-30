@@ -53,6 +53,7 @@
         <h2 class="section-title">免責聲明</h2>
         <p class="section-text">本站所有資訊皆來自公開資料，不代表任何商業立場。</p>
         <p class="section-text">繪師的委託狀態、價格與條件可能隨時變動，一切以繪師本人公告為準。</p>
+        <p class="section-text">作品圖片直接引用自繪師公開推文並標註來源，版權皆屬原繪師所有。如為作品當事人並希望調整或移除展示，請透過上方聯絡方式告知，將盡快處理。</p>
       </section>
       
       <section class="about-section">

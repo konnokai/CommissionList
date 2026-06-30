@@ -90,6 +90,7 @@
     <footer class="footer">
       <div class="footer-inner">
         <p class="footer-text">資料僅供參考，委託前請直接聯繫繪師確認最新狀態</p>
+        <p class="footer-text">作品圖片版權皆屬原繪師所有，如為作品當事人並希望調整或移除，請至 <a href="https://github.com/konnokai/CommissionList/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> 告知</p>
       </div>
     </footer>
   </div>
@@ -410,6 +411,16 @@ body {
 .footer-text {
   font-size: 0.82rem;
   color: var(--text-tertiary);
+}
+
+.footer-text a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-text a:hover {
+  color: var(--text-primary);
 }
 
 .pagination {

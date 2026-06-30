@@ -12,7 +12,7 @@
         class="gallery-item"
         :class="{ featured: i === 0, 'has-link': !!item.url }"
       >
-        <img :src="item.img" :alt="`${artist.name} 作品 ${i + 1}`" loading="lazy" />
+        <img :src="item.img" :alt="`${artist.name} 作品 ${i + 1}`" loading="lazy" @error="onImgError" />
         <div class="gallery-overlay">
           <i v-if="item.url" class="fa-solid fa-arrow-up-right-from-square gallery-link-icon"></i>
         </div>
@@ -23,7 +23,7 @@
     <div class="card-body">
       <!-- Artist info -->
       <div class="artist-info">
-        <img :src="avatarUrl" :alt="artist.name" class="avatar" loading="lazy" />
+        <img :src="avatarUrl" :alt="artist.name" class="avatar" loading="lazy" @error="onImgError" />
         <div class="artist-meta">
           <h2 class="artist-name">{{ artist.name }}</h2>
           <span class="artist-handle">{{ artist.handle }}</span>
@@ -92,6 +92,19 @@ const avatarUrl = computed(() => {
   const handle = twitterHandle(props.artist)
   return (handle && props.avatars[handle.toLowerCase()]) || props.artist.avatar
 })
+
+// 圖片失效（推文刪除、帳號私密、CDN 改版…）時換成佔位圖
+const FALLBACK_IMG =
+  'data:image/svg+xml,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" fill="#ebebeb"/><g fill="none" stroke="#bdbdbd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="40" width="52" height="40" rx="4"/><circle cx="48" cy="54" r="5"/><path d="M38 76l16-16 9 9 7-7 14 14"/></g></svg>',
+  )
+function onImgError(e) {
+  const img = e.target
+  if (img.dataset.fallback) return // 已換過就不再處理，避免無限迴圈
+  img.dataset.fallback = '1'
+  img.src = FALLBACK_IMG
+}
 
 function getIconInfo(type) {
   const faIcons = {
