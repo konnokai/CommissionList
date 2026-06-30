@@ -23,7 +23,7 @@
     <div class="card-body">
       <!-- Artist info -->
       <div class="artist-info">
-        <img :src="artist.avatar" :alt="artist.name" class="avatar" loading="lazy" />
+        <img :src="avatarUrl" :alt="artist.name" class="avatar" loading="lazy" />
         <div class="artist-meta">
           <h2 class="artist-name">{{ artist.name }}</h2>
           <span class="artist-handle">{{ artist.handle }}</span>
@@ -78,8 +78,19 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+import { twitterHandle } from '../data/twitterHandle.js'
+
+const props = defineProps({
   artist: { type: Object, required: true },
+  // handle(小寫) -> 頭像網址，由 worker /api/avatars 提供
+  avatars: { type: Object, default: () => ({}) },
+})
+
+// 有 worker 提供的頭像就用，否則退回 artist.avatar
+const avatarUrl = computed(() => {
+  const handle = twitterHandle(props.artist)
+  return (handle && props.avatars[handle.toLowerCase()]) || props.artist.avatar
 })
 
 function getIconInfo(type) {

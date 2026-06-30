@@ -35,9 +35,25 @@ CommissionList/
     └── views/               # 頁面級元件
         ├── AboutView.vue    # 關於本站頁面
         └── CommissionFormatView.vue  # 委託格式範例頁面
-    └── data/
-        └── artists.js       # 繪師靜態資料陣列
+    ├── data/
+    │   ├── artists.js       # 繪師靜態資料陣列
+    │   └── twitterHandle.js # 從 contacts 取出 Twitter 帳號的共用 helper（前端 + worker 共用）
+    └── worker/
+        └── index.js         # Cloudflare Worker：/api/avatars 端點 + 每日 cron 更新頭像
 ```
+
+---
+
+## 頭像自動更新（Cloudflare Worker + KV）
+
+繪師頭像不再寫死在 `artists.js` 的 `avatar` 欄位，而是每天自動從 X/Twitter 抓取最新頭像：
+
+- **資料來源**：[FxEmbed](https://docs.fxembed.com/) API `GET https://api.fxtwitter.com/2/profile/{handle}`，取 `user.avatar_url`。
+- **Worker**（`src/worker/index.js`）
+  - `scheduled`：cron `0 18 * * *`（UTC，約台灣 02:00）逐一抓取每位繪師的 Twitter 頭像，存入 KV（binding `AVATARS`，key `avatars`，內容為 `{ 帳號(小寫): 頭像網址 }`）。單一帳號抓失敗會保留舊值，下次重試。
+  - `fetch`：`GET /api/avatars` 回傳整份 JSON（`run_worker_first: ["/api/*"]` 確保此路由不被 SPA fallback 攔截）。
+- **前端**：`App.vue` 掛載時 `fetch('/api/avatars')` 取得對照表，透過 `:avatars` prop 傳給 `ArtistCard`；`ArtistCard` 以 `twitterHandle()` 取帳號查表，查不到才退回 `artist.avatar`。
+- **設定**：KV namespace id 需填入 `wrangler.jsonc` 的 `kv_namespaces[0].id`（部署前用 `wrangler kv namespace create AVATARS` 建立）。
 
 ---
 

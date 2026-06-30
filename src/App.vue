@@ -34,6 +34,7 @@
             v-for="artist in pagedArtists"
             :key="artist.id"
             :artist="artist"
+            :avatars="avatars"
           />
         </TransitionGroup>
 
@@ -118,6 +119,15 @@ onMounted(() => {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   isDark.value = saved ? saved === 'dark' : prefersDark
   document.documentElement.classList.toggle('dark', isDark.value)
+})
+
+// 從 worker 取每日更新的頭像表，失敗就維持空表（ArtistCard 退回 artist.avatar）
+const avatars = ref({})
+onMounted(async () => {
+  try {
+    const res = await fetch('/api/avatars')
+    if (res.ok) avatars.value = await res.json()
+  } catch { /* ignore，用內建 avatar */ }
 })
 
 const searchQuery = ref('')
