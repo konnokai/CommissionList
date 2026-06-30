@@ -1,22 +1,30 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "commission-list",
-  "compatibility_date": "2026-05-28",
-  "main": "src/worker/index.js",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*"]
-  },
-  "kv_namespaces": [
-    { "binding": "AVATARS", "id": "REPLACE_WITH_KV_NAMESPACE_ID" }
-  ],
-  "triggers": {
-    "crons": ["0 18 * * *"]
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "commission-list",
+	"compatibility_date": "2026-05-28",
+	"main": "src/worker/index.js",
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"kv_namespaces": [
+		{
+			"binding": "AVATARS",
+			"id": "9a707de039964af3b1a0c1f62f499806",
+			"remote": true
+		}
+	],
+	"triggers": {
+		"crons": [
+			"0 18 * * *"
+		]
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	]
 }
